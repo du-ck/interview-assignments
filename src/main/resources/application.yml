@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: 44labs
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+  datasource:
+    url: jdbc:sqlite:mydb.db
+    driver-class-name: org.sqlite.JDBC
+    username: admin
+    password: admin
