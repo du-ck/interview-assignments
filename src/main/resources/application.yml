@@ -8,3 +8,7 @@ spring:
     driver-class-name: org.sqlite.JDBC
     username: admin
     password: admin
+jwt:
+  secret: supersecretkey
+  # 30?
+  expiration: 1800000
