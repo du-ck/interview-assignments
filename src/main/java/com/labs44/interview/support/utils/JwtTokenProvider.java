@@ -1,6 +1,7 @@
 package com.labs44.interview.support.utils;
 
 
+import com.labs44.interview.domain.user.Authority;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * JWT Token 관련
@@ -27,8 +29,14 @@ public class JwtTokenProvider {
     @Value("${jwt.expiration}")
     private int expiration;
 
-    public String issue(String email) {
+    /**
+     * 이메일과 권한을 이용하여 JWT 토큰 생성
+     */
+    public String issue(String email, Authority role) {
+        HashMap<String, Object> claims = new HashMap<>();
+        claims.put("role", role);
         return Jwts.builder()
+                .setClaims(claims)
                 .setSubject(email)
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(SignatureAlgorithm.HS512, secretKey)
@@ -58,6 +66,6 @@ public class JwtTokenProvider {
 
         // 사용자 이름과 권한을 기반으로 Authentication 객체 생성
         return new UsernamePasswordAuthenticationToken(claims.getSubject(), null,
-                Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")));
+                Collections.singleton(new SimpleGrantedAuthority("ROLE_" + claims.get("role").toString())));
     }
 }

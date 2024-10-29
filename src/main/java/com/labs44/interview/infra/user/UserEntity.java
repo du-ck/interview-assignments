@@ -56,6 +56,7 @@ public class UserEntity {
                 .role(entity.role)
                 .created_at(entity.created_at)
                 .updated_at(entity.updated_at)
+                .deleted_at(entity.deleted_at)
                 .build();
     }
 
@@ -70,8 +71,10 @@ public class UserEntity {
                 .nickname(domain.getNickname())
                 .password(domain.getPassword())
                 .role(domain.getRole())
+                .deleted(domain.getDeleted())
                 .created_at(domain.getCreated_at())
                 .updated_at(domain.getUpdated_at())
+                .deleted_at(domain.getDeleted_at())
                 .build();
     }
 }

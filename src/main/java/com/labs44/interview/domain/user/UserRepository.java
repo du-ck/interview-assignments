@@ -8,6 +8,6 @@ public interface UserRepository {
     Optional<User> save(User user);
 
     Optional<User> findByEmail(String email);
-    List<User> findAll();
-    boolean deleteById(int userId);
+    Optional<User> findById(int id);
+    List<User> findAll(int page, int size);
 }

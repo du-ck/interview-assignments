@@ -34,9 +34,11 @@ public class JwtFilter extends GenericFilterBean {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader(AUTHORIZATION_HEADER);
 
-        if (StringUtils.hasText(token) && jwtTokenProvider.validate(httpServletRequest, token)) {
-            Authentication authentication = jwtTokenProvider.getAuthentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+        if (StringUtils.hasText(token)) {
+            if (jwtTokenProvider.validate(httpServletRequest, token)) {
+                Authentication authentication = jwtTokenProvider.getAuthentication(token);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         } else {
             request.setAttribute("Exception", "토큰 헤더가 잘못되었습니다. Authorization 을 넣어주세요");
         }

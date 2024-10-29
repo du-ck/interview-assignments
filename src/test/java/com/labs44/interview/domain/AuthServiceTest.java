@@ -65,7 +65,7 @@ public class AuthServiceTest {
         given(passwordEncoder.matches(password, encodedPassword))
                 .willReturn(true);
 
-        given(jwtTokenProvider.issue(email))
+        given(jwtTokenProvider.issue(email, user.getRole()))
                 .willReturn(Jwts.builder()
                         .setSubject(email)
                         .setExpiration(new Date(System.currentTimeMillis() + 1800000))

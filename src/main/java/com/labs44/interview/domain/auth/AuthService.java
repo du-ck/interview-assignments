@@ -55,6 +55,6 @@ public class AuthService {
             throw new BadCredentialsException("이메일 혹은 비밀번호가 잘못되었습니다");
         }
         //토큰 발급
-        return jwtTokenProvider.issue(email);
+        return jwtTokenProvider.issue(email, findUser.get().getRole());
     }
 }
