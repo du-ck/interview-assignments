@@ -36,6 +36,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(409).body(new ErrorResponse(false, "409", e.getMessage()));
     }
 
+    @ExceptionHandler(value = AlreadyExistBoardException.class)
+    public ResponseEntity<ErrorResponse> handleAlreadyExistBoardException(AlreadyExistBoardException e) {
+        log.error(e.getMessage());
+        return ResponseEntity.status(409).body(new ErrorResponse(false, "409", e.getMessage()));
+    }
+
     @ExceptionHandler(value = TokenVerificationException.class)
     public ResponseEntity<ErrorResponse> handleTokenVerificationException(TokenVerificationException e) {
         log.error(e.getMessage());
