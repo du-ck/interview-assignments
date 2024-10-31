@@ -1,0 +1,6 @@
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 'board1 test update', 'board1 test update___', 0, '2024-10-30 16:10:27', '2024-10-31T01:28:25.257685300', null);
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (2, 1, 1, 'testPost2', 'TestPostContent2', 0, '2024-10-30 16:10:27', '2024-10-30 16:10:27', null);
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (3, 1, 1, 'testPost3', 'TestPostContent3', 0, '2024-10-30 16:10:27', '2024-10-30 16:10:27', null);
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (4, 2, 1, 'testPost4', 'TestPostContent4', 0, '2024-10-30 16:10:27', '2024-10-30 16:10:27', null);
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (5, 2, 1, 'testPost5', 'TestPostContent5', 0, '2024-10-30 16:10:27', '2024-10-30 16:10:27', null);
+INSERT INTO post (id, board_id, user_id, title, content, deleted, created_at, updated_at, deleted_at) VALUES (6, 2, 1, 'testPost6', 'TestPostContent6', 0, '2024-10-30 16:10:27', '2024-10-30 16:10:27', null);
